@@ -130,25 +130,7 @@ const NextQuestion = () => {
 </template>
 
 <style>
-:root {
-  --orange: #E88607;
-  --lightorange: #ff9c4a;
-  --lightgray: #a0a0a0;
-  --darkgray: #181818;
-  --green: #2cce7d;
-  --red: #fa3d3d;
-}
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Monserat', sans-serif;
-}
-
-body {
-  background-color: #fff;
-}
 
 .app {
   display: flex;
@@ -156,7 +138,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  min-height: 100vh;
+  min-height: calc(100vh - 160px);
 }
 
 h1 {
