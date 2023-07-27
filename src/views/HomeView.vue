@@ -1,40 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
+import questions from '../components/quizData'
 
-const questions = ref([
-  {
-    question: 'What is Vue?',
-    answer: 0,
-    options: [
-      'Front-end framework',
-      'Back-end server',
-      'Coffee maker'
-    ],
-    selected: null
-  },
-  {
-    question: 'What is Vue Router used for?',
-    answer: 1,
-    options: [
-      'NASA space program',
-      'Routing library for Vue',
-      'Connect to the internet',
-      'All are incorrect'
-    ],
-    selected: null
-  },
-  {
-    question: 'What is Wayne favorite football team?',
-    answer: 3,
-    options: [
-      'Bayern Levekusen',
-      'PSG',
-      'Manchester United',
-      'Arsenal'
-    ],
-    selected: null
-  },
-])
 
 const quizCompleted = ref(false)
 const currentQuestion = ref(0)
@@ -124,7 +91,6 @@ const NextQuestion = () => {
     <section v-else>
       <h2>You have finished the quiz!</h2>
       <p>Your score is {{ score }} / {{ questions.length }}</p>
-
     </section>
   </main>
 </template>
