@@ -37,6 +37,8 @@ const NextQuestion = () => {
   }
 }
 
+
+
 </script>
 
 <template>
@@ -47,7 +49,7 @@ const NextQuestion = () => {
         <span class="question">{{ getCurrentQuestion.question }}</span>
         <span class="score">Score {{ score }} / {{ questions.length }}</span>        
       </div>
-
+      <!-- Answer options -->
       <div class="options">
         <label 
           v-for="(option, index) in getCurrentQuestion.options" 
@@ -70,10 +72,24 @@ const NextQuestion = () => {
             :value="index"
             v-model="getCurrentQuestion.selected"
             :disabled="getCurrentQuestion.selected"
-            @change="SetAnswer">
-            <span>{{ option }}</span>
+            @change="SetAnswer"
+          >
+          <span>{{ option }}</span>            
         </label>
       </div>
+
+      <!-- Display the correct answer when a wrong answer is chosen -->
+      <div v-if="
+          getCurrentQuestion.selected != null &&
+          getCurrentQuestion.selected != getCurrentQuestion.answer
+        " class="answer">
+        <span        
+          class="correct-answer"
+        >
+          The correct answer is: {{ getCurrentQuestion.options[getCurrentQuestion.answer] }}
+        </span>
+      </div>
+
       
       <button
         @click="NextQuestion"
@@ -120,6 +136,13 @@ h1 {
   border-radius: 0.5rem;
   background-color: var(--darkgray);
 }
+
+.quiz .answer {
+  margin-bottom: 20px;
+  color: #2cce7d;
+}
+
+
 
 .quiz-info {
   display: flex;
