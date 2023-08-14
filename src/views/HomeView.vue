@@ -4,7 +4,10 @@ import questions from '../components/quizData'
 
 
 const quizCompleted = ref(false)
+// The ref function is used to create a reactive reference to a value. A reactive reference is a special object that allows Vue to track changes to the value and automatically update the user interface whenever the value changes.
+// When you call ref(0), Vue creates a reactive reference to the value 0, and you'll get an object that has a property named value which holds the actual value.
 const currentQuestion = ref(0)
+// Computed properties are functions in a Vue component that are used to generate derived data based on other reactive properties. Computed properties are cached and only re-evaluated when their dependencies change.
 const score = computed(() => {
   let value = 0
   questions.value.map(q => {
@@ -36,9 +39,6 @@ const NextQuestion = () => {
     quizCompleted.value = true
   }
 }
-
-
-
 </script>
 
 <template>
